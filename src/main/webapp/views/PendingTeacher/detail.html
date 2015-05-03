@@ -1,0 +1,117 @@
+<header ng-switch on="$location.path().indexOf('/PendingTeachers/new') > -1">
+    <h3 ng-switch-when="true">Create a new PendingTeacher</h3>
+    <h3 ng-switch-when="false">View or edit PendingTeacher</h3>
+</header>
+<form id="PendingTeacherForm" name="PendingTeacherForm" class="form-horizontal" role="form">
+    <div ng-show="displayError" class="alert alert-danger">
+        <strong>Error!</strong> Something broke. Retry, or cancel and start afresh.
+    </div>
+    
+
+    <div class="form-group" ng-class="{'has-error': PendingTeacherForm.name.$invalid}">
+        <label for="name" class="col-sm-2 control-label">Name</label>
+        <div id="nameControls" class="col-sm-10">
+            <input id="name" name="name" type="text"class="form-control" ng-model="pendingTeacher.name" placeholder="Enter the PendingTeacher Name"></input>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': PendingTeacherForm.nickname.$invalid}">
+        <label for="nickname" class="col-sm-2 control-label">Nickname</label>
+        <div id="nicknameControls" class="col-sm-10">
+            <input id="nickname" name="nickname" type="text"class="form-control" ng-model="pendingTeacher.nickname" placeholder="Enter the PendingTeacher Nickname"></input>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': PendingTeacherForm.password.$invalid}">
+        <label for="password" class="col-sm-2 control-label">Password</label>
+        <div id="passwordControls" class="col-sm-10">
+            <input id="password" name="password" type="text"class="form-control" ng-model="pendingTeacher.password" placeholder="Enter the PendingTeacher Password"></input>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': PendingTeacherForm.email.$invalid}">
+        <label for="email" class="col-sm-2 control-label">Email</label>
+        <div id="emailControls" class="col-sm-10">
+            <input id="email" name="email" type="text"class="form-control" ng-model="pendingTeacher.email" placeholder="Enter the PendingTeacher Email"></input>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': PendingTeacherForm.birthDate.$invalid}">
+        <label for="birthDate" class="col-sm-2 control-label">Birth Date</label>
+        <div id="birthDateControls" class="col-sm-10">
+            <date id="birthDate" name="birthDate" ng-model="pendingTeacher.birthDate" placeholder="Enter the PendingTeacher Birth Date"></date>
+            <span class="help-block error" ng-show="PendingTeacherForm.birthDate.$error.dateFormat">does not match format "yyyy-MM-dd" (e.g. 2013-12-01)</span>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': PendingTeacherForm.sexe.$invalid}">
+        <label for="sexe" class="col-sm-2 control-label">Sexe</label>
+        <div id="sexeControls" class="col-sm-10">
+            <input id="sexe" name="sexe" type="text"class="form-control" ng-model="pendingTeacher.sexe" placeholder="Enter the PendingTeacher Sexe"></input>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': PendingTeacherForm.description.$invalid}">
+        <label for="description" class="col-sm-2 control-label">Description</label>
+        <div id="descriptionControls" class="col-sm-10">
+            <input id="description" name="description" type="text" ng-maxlength="3000"class="form-control" ng-model="pendingTeacher.description" placeholder="Enter the PendingTeacher Description"></input>
+            <span class="help-block error" ng-show="PendingTeacherForm.description.$error.maxlength">maximum length is 3000</span>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': PendingTeacherForm.createdOn.$invalid}">
+        <label for="createdOn" class="col-sm-2 control-label">Created On</label>
+        <div id="createdOnControls" class="col-sm-10">
+            <date id="createdOn" name="createdOn" ng-model="pendingTeacher.createdOn" placeholder="Enter the PendingTeacher Created On"></date>
+            <span class="help-block error" ng-show="PendingTeacherForm.createdOn.$error.dateFormat">does not match format "yyyy-MM-dd" (e.g. 2013-12-01)</span>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': PendingTeacherForm.location.$invalid}">
+        <label for="location" class="col-sm-2 control-label">Location</label>
+        <div id="locationControls" class="col-sm-10">
+            <input id="location" name="location" type="text"class="form-control" ng-model="pendingTeacher.location" placeholder="Enter the PendingTeacher Location"></input>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': PendingTeacherForm.image.$invalid}">
+        <label for="image" class="col-sm-2 control-label">Image</label>
+        <div id="imageControls" class="col-sm-10">
+        <select id="image" name="image" class="form-control" ng-model="imageSelection" ng-options="i.text for i in imageSelectionList"  >
+            <option value="">Choose a Image</option>
+        </select>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': PendingTeacherForm.language.$invalid}">
+        <label for="language" class="col-sm-2 control-label">Language</label>
+        <div id="languageControls" class="col-sm-10">
+        <select id="language" name="language" class="form-control" ng-model="pendingTeacher.language" ng-options="l for l in languageList"  >
+            <option value="">Choose a Language</option>
+        </select>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': PendingTeacherForm.phone.$invalid}">
+        <label for="phone" class="col-sm-2 control-label">Phone</label>
+        <div id="phoneControls" class="col-sm-10">
+            <input id="phone" name="phone" type="text"class="form-control" ng-model="pendingTeacher.phone" placeholder="Enter the PendingTeacher Phone"></input>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': PendingTeacherForm.able.$invalid}">
+        <label for="able" class="col-sm-2 control-label">Able</label>
+        <div id="ableControls" class="col-sm-10">
+            <input id="able" name="able" type="checkbox" class="checkbox" ng-model="pendingTeacher.able" placeholder="Enter the PendingTeacher Able"></input>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button id="savePendingTeacher" name="savePendingTeacher" class="btn btn-primary" ng-disabled="isClean() || PendingTeacherForm.$invalid" ng-click="save()"><span class="glyphicon glyphicon-ok-sign"></span> Save</button>
+            <button id="cancel" name="cancel" class="btn btn-default" ng-click="cancel()"><span class="glyphicon glyphicon-remove-sign"></span> Cancel</button>
+            <button id="deletePendingTeacher" name="deletePendingTeacher" class="btn btn-danger" ng-show="pendingTeacher.id" ng-click="remove()"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,110 @@
+<header ng-switch on="$location.path().indexOf('/Teachers/new') > -1">
+    <h3 ng-switch-when="true">Create a new Teacher</h3>
+    <h3 ng-switch-when="false">View or edit Teacher</h3>
+</header>
+<form id="TeacherForm" name="TeacherForm" class="form-horizontal" role="form">
+    <div ng-show="displayError" class="alert alert-danger">
+        <strong>Error!</strong> Something broke. Retry, or cancel and start afresh.
+    </div>
+    
+
+    <div class="form-group" ng-class="{'has-error': TeacherForm.name.$invalid}">
+        <label for="name" class="col-sm-2 control-label">Name</label>
+        <div id="nameControls" class="col-sm-10">
+            <input id="name" name="name" type="text"class="form-control" ng-model="teacher.name" placeholder="Enter the Teacher Name"></input>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': TeacherForm.email.$invalid}">
+        <label for="email" class="col-sm-2 control-label">Email</label>
+        <div id="emailControls" class="col-sm-10">
+            <input id="email" name="email" type="text"class="form-control" ng-model="teacher.email" placeholder="Enter the Teacher Email"></input>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': TeacherForm.birthDate.$invalid}">
+        <label for="birthDate" class="col-sm-2 control-label">Birth Date</label>
+        <div id="birthDateControls" class="col-sm-10">
+            <date id="birthDate" name="birthDate" ng-model="teacher.birthDate" placeholder="Enter the Teacher Birth Date"></date>
+            <span class="help-block error" ng-show="TeacherForm.birthDate.$error.dateFormat">does not match format "yyyy-MM-dd" (e.g. 2013-12-01)</span>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': TeacherForm.sexe.$invalid}">
+        <label for="sexe" class="col-sm-2 control-label">Sexe</label>
+        <div id="sexeControls" class="col-sm-10">
+            <input id="sexe" name="sexe" type="text"class="form-control" ng-model="teacher.sexe" placeholder="Enter the Teacher Sexe"></input>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': TeacherForm.description.$invalid}">
+        <label for="description" class="col-sm-2 control-label">Description</label>
+        <div id="descriptionControls" class="col-sm-10">
+            <input id="description" name="description" type="text" ng-maxlength="3000"class="form-control" ng-model="teacher.description" placeholder="Enter the Teacher Description"></input>
+            <span class="help-block error" ng-show="TeacherForm.description.$error.maxlength">maximum length is 3000</span>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': TeacherForm.location.$invalid}">
+        <label for="location" class="col-sm-2 control-label">Location</label>
+        <div id="locationControls" class="col-sm-10">
+            <input id="location" name="location" type="text"class="form-control" ng-model="teacher.location" placeholder="Enter the Teacher Location"></input>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': TeacherForm.createdOn.$invalid}">
+        <label for="createdOn" class="col-sm-2 control-label">Created On</label>
+        <div id="createdOnControls" class="col-sm-10">
+            <date id="createdOn" name="createdOn" ng-model="teacher.createdOn" placeholder="Enter the Teacher Created On"></date>
+            <span class="help-block error" ng-show="TeacherForm.createdOn.$error.dateFormat">does not match format "yyyy-MM-dd" (e.g. 2013-12-01)</span>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': TeacherForm.language.$invalid}">
+        <label for="language" class="col-sm-2 control-label">Language</label>
+        <div id="languageControls" class="col-sm-10">
+        <select id="language" name="language" class="form-control" ng-model="teacher.language" ng-options="l for l in languageList"  >
+            <option value="">Choose a Language</option>
+        </select>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': TeacherForm.image.$invalid}">
+        <label for="image" class="col-sm-2 control-label">Image</label>
+        <div id="imageControls" class="col-sm-10">
+        <select id="image" name="image" class="form-control" ng-model="imageSelection" ng-options="i.text for i in imageSelectionList"  >
+            <option value="">Choose a Image</option>
+        </select>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': TeacherForm.phone.$invalid}">
+        <label for="phone" class="col-sm-2 control-label">Phone</label>
+        <div id="phoneControls" class="col-sm-10">
+            <input id="phone" name="phone" type="text"class="form-control" ng-model="teacher.phone" placeholder="Enter the Teacher Phone"></input>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': TeacherForm.able.$invalid}">
+        <label for="able" class="col-sm-2 control-label">Able</label>
+        <div id="ableControls" class="col-sm-10">
+            <input id="able" name="able" type="checkbox" class="checkbox" ng-model="teacher.able" placeholder="Enter the Teacher Able"></input>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': TeacherForm.deleted.$invalid}">
+        <label for="deleted" class="col-sm-2 control-label">Deleted</label>
+        <div id="deletedControls" class="col-sm-10">
+            <input id="deleted" name="deleted" type="checkbox" class="checkbox" ng-model="teacher.deleted" placeholder="Enter the Teacher Deleted"></input>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button id="saveTeacher" name="saveTeacher" class="btn btn-primary" ng-disabled="isClean() || TeacherForm.$invalid" ng-click="save()"><span class="glyphicon glyphicon-ok-sign"></span> Save</button>
+            <button id="cancel" name="cancel" class="btn btn-default" ng-click="cancel()"><span class="glyphicon glyphicon-remove-sign"></span> Cancel</button>
+            <button id="deleteTeacher" name="deleteTeacher" class="btn btn-danger" ng-show="teacher.id" ng-click="remove()"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+        </div>
+    </div>
+</form>

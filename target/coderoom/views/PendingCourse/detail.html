@@ -1,0 +1,56 @@
+<header ng-switch on="$location.path().indexOf('/PendingCourses/new') > -1">
+    <h3 ng-switch-when="true">Create a new PendingCourse</h3>
+    <h3 ng-switch-when="false">View or edit PendingCourse</h3>
+</header>
+<form id="PendingCourseForm" name="PendingCourseForm" class="form-horizontal" role="form">
+    <div ng-show="displayError" class="alert alert-danger">
+        <strong>Error!</strong> Something broke. Retry, or cancel and start afresh.
+    </div>
+    
+
+    <div class="form-group" ng-class="{'has-error': PendingCourseForm.title.$invalid}">
+        <label for="title" class="col-sm-2 control-label">Title</label>
+        <div id="titleControls" class="col-sm-10">
+            <input id="title" name="title" type="text"class="form-control" ng-model="pendingCourse.title" placeholder="Enter the PendingCourse Title"></input>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': PendingCourseForm.description.$invalid}">
+        <label for="description" class="col-sm-2 control-label">Description</label>
+        <div id="descriptionControls" class="col-sm-10">
+            <input id="description" name="description" type="text"class="form-control" ng-model="pendingCourse.description" placeholder="Enter the PendingCourse Description"></input>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': PendingCourseForm.content.$invalid}">
+        <label for="content" class="col-sm-2 control-label">Content</label>
+        <div id="contentControls" class="col-sm-10">
+            <input id="content" name="content" type="text"class="form-control" ng-model="pendingCourse.content" placeholder="Enter the PendingCourse Content"></input>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': PendingCourseForm.teacher.$invalid}">
+        <label for="teacher" class="col-sm-2 control-label">Teacher</label>
+        <div id="teacherControls" class="col-sm-10">
+        <select id="teacher" name="teacher" class="form-control" ng-model="teacherSelection" ng-options="t.text for t in teacherSelectionList"  >
+            <option value="">Choose a Teacher</option>
+        </select>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': PendingCourseForm.popular.$invalid}">
+        <label for="popular" class="col-sm-2 control-label">Popular</label>
+        <div id="popularControls" class="col-sm-10">
+            <input id="popular" name="popular" type="checkbox" class="checkbox" ng-model="pendingCourse.popular" placeholder="Enter the PendingCourse Popular"></input>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button id="savePendingCourse" name="savePendingCourse" class="btn btn-primary" ng-disabled="isClean() || PendingCourseForm.$invalid" ng-click="save()"><span class="glyphicon glyphicon-ok-sign"></span> Save</button>
+            <button id="cancel" name="cancel" class="btn btn-default" ng-click="cancel()"><span class="glyphicon glyphicon-remove-sign"></span> Cancel</button>
+            <button id="deletePendingCourse" name="deletePendingCourse" class="btn btn-danger" ng-show="pendingCourse.id" ng-click="remove()"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+        </div>
+    </div>
+</form>

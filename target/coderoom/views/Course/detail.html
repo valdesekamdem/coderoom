@@ -1,0 +1,73 @@
+<header ng-switch on="$location.path().indexOf('/Courses/new') > -1">
+    <h3 ng-switch-when="true">Create a new Course</h3>
+    <h3 ng-switch-when="false">View or edit Course</h3>
+</header>
+<form id="CourseForm" name="CourseForm" class="form-horizontal" role="form">
+    <div ng-show="displayError" class="alert alert-danger">
+        <strong>Error!</strong> Something broke. Retry, or cancel and start afresh.
+    </div>
+    
+
+    <div class="form-group" ng-class="{'has-error': CourseForm.title.$invalid}">
+        <label for="title" class="col-sm-2 control-label">Title</label>
+        <div id="titleControls" class="col-sm-10">
+            <input id="title" name="title" type="text"class="form-control" ng-model="course.title" placeholder="Enter the Course Title"></input>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': CourseForm.description.$invalid}">
+        <label for="description" class="col-sm-2 control-label">Description</label>
+        <div id="descriptionControls" class="col-sm-10">
+            <input id="description" name="description" type="text"class="form-control" ng-model="course.description" placeholder="Enter the Course Description"></input>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': CourseForm.content.$invalid}">
+        <label for="content" class="col-sm-2 control-label">Content</label>
+        <div id="contentControls" class="col-sm-10">
+            <input id="content" name="content" type="text"class="form-control" ng-model="course.content" placeholder="Enter the Course Content"></input>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': CourseForm.teacher.$invalid}">
+        <label for="teacher" class="col-sm-2 control-label">Teacher</label>
+        <div id="teacherControls" class="col-sm-10">
+        <select id="teacher" name="teacher" class="form-control" ng-model="teacherSelection" ng-options="t.text for t in teacherSelectionList"  >
+            <option value="">Choose a Teacher</option>
+        </select>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': CourseForm.createdOn.$invalid}">
+        <label for="createdOn" class="col-sm-2 control-label">Created On</label>
+        <div id="createdOnControls" class="col-sm-10">
+            <date id="createdOn" name="createdOn" ng-model="course.createdOn" placeholder="Enter the Course Created On"></date>
+            <span class="help-block error" ng-show="CourseForm.createdOn.$error.dateFormat">does not match format "yyyy-MM-dd" (e.g. 2013-12-01)</span>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': CourseForm.categories.$invalid}">
+        <label for="categories" class="col-sm-2 control-label">Categories</label>
+        <div id="categoriesControls" class="col-sm-10">
+            <select id="categories" name="categories" multiple class="form-control" ng-model="categoriesSelection" ng-options="c.text for c in categoriesSelectionList">
+                <option value="">Choose a Categories</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group" ng-class="{'has-error': CourseForm.popular.$invalid}">
+        <label for="popular" class="col-sm-2 control-label">Popular</label>
+        <div id="popularControls" class="col-sm-10">
+            <input id="popular" name="popular" type="checkbox" class="checkbox" ng-model="course.popular" placeholder="Enter the Course Popular"></input>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button id="saveCourse" name="saveCourse" class="btn btn-primary" ng-disabled="isClean() || CourseForm.$invalid" ng-click="save()"><span class="glyphicon glyphicon-ok-sign"></span> Save</button>
+            <button id="cancel" name="cancel" class="btn btn-default" ng-click="cancel()"><span class="glyphicon glyphicon-remove-sign"></span> Cancel</button>
+            <button id="deleteCourse" name="deleteCourse" class="btn btn-danger" ng-show="course.id" ng-click="remove()"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+        </div>
+    </div>
+</form>

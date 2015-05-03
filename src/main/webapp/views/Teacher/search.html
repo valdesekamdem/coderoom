@@ -1,0 +1,153 @@
+<div class="form-horizontal">
+    <h3>Create a new Teacher</h3>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-sm-2">
+            <a id="Create" name="Create" class="btn btn-primary" href="#/Teachers/new"><span class="glyphicon glyphicon-plus-sign"></span> Create</a>
+        </div>
+    </div>
+</div>
+<hr/>
+<div>
+    <h3>Search for Teachers</h3>
+    <form id="TeacherSearch" class="form-horizontal">
+        
+
+    <div class="form-group">
+        <label for="name" class="col-sm-2 control-label">Name</label>
+        <div class="col-sm-10">
+            <input id="name" name="name" class="form-control" type="text" ng-model="search.name" placeholder="Enter the Teacher Name"></input>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="email" class="col-sm-2 control-label">Email</label>
+        <div class="col-sm-10">
+            <input id="email" name="email" class="form-control" type="text" ng-model="search.email" placeholder="Enter the Teacher Email"></input>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label for="sexe" class="col-sm-2 control-label">Sexe</label>
+        <div class="col-sm-10">
+            <input id="sexe" name="sexe" class="form-control" type="text" ng-model="search.sexe" placeholder="Enter the Teacher Sexe"></input>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="description" class="col-sm-2 control-label">Description</label>
+        <div class="col-sm-10">
+            <input id="description" name="description" class="form-control" type="text" ng-model="search.description" placeholder="Enter the Teacher Description"></input>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="location" class="col-sm-2 control-label">Location</label>
+        <div class="col-sm-10">
+            <input id="location" name="location" class="form-control" type="text" ng-model="search.location" placeholder="Enter the Teacher Location"></input>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label for="language" class="col-sm-2 control-label">Language</label>
+        <div class="col-sm-10">
+            <select id="language" name="language" class="form-control" ng-model="search.language" ng-options="l as l for l in languageList">
+                <option value="">Choose a Language</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="image" class="col-sm-2 control-label">Image</label>
+        <div class="col-sm-10">
+            <select id="image" name="image" class="form-control" ng-model="search.image" ng-options="i as i.id for i in imageList">
+                <option value="">Choose a Image</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="phone" class="col-sm-2 control-label">Phone</label>
+        <div class="col-sm-10">
+            <input id="phone" name="phone" class="form-control" type="text" ng-model="search.phone" placeholder="Enter the Teacher Phone"></input>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="able" class="col-sm-2 control-label">Able</label>
+        <div class="col-sm-10">
+            <select id="able" name="able" class="form-control" ng-model="search.able" ng-options="a as a for a in ableList">
+                <option value="">Choose a Able</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="deleted" class="col-sm-2 control-label">Deleted</label>
+        <div class="col-sm-10">
+            <select id="deleted" name="deleted" class="form-control" ng-model="search.deleted" ng-options="d as d for d in deletedList">
+                <option value="">Choose a Deleted</option>
+            </select>
+        </div>
+    </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-sm-10">
+                <a id="Search" name="Search" class="btn btn-primary" ng-click="performSearch()"><span class="glyphicon glyphicon-search"></span> Search</a>
+            </div>
+        </div>
+    </form>
+</div>
+<div id="search-results">
+        <div class="table-responsive">
+        <table class="table table-responsive table-bordered table-striped clearfix">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Birth Date</th>
+                    <th>Sexe</th>
+                    <th>Description</th>
+                    <th>Location</th>
+                    <th>Created On</th>
+                    <th>Language</th>
+                    <th>Image</th>
+                    <th>Phone</th>
+                    <th>Able</th>
+                    <th>Deleted</th>
+                </tr>
+            </thead>
+            <tbody id="search-results-body">
+                <tr ng-repeat="result in searchResults | searchFilter:searchResults | startFrom:currentPage*pageSize | limitTo:pageSize">
+                    <td><a href="#/Teachers/edit/{{result.id}}">{{result.name}}</a></td>
+                    <td><a href="#/Teachers/edit/{{result.id}}">{{result.email}}</a></td>
+                    <td><a href="#/Teachers/edit/{{result.id}}">{{result.birthDate| date:'mediumDate'}}</a></td>
+                    <td><a href="#/Teachers/edit/{{result.id}}">{{result.sexe}}</a></td>
+                    <td><a href="#/Teachers/edit/{{result.id}}">{{result.description}}</a></td>
+                    <td><a href="#/Teachers/edit/{{result.id}}">{{result.location}}</a></td>
+                    <td><a href="#/Teachers/edit/{{result.id}}">{{result.createdOn| date:'mediumDate'}}</a></td>
+                    <td><a href="#/Teachers/edit/{{result.id}}">{{result.language}}</a></td>
+                        <td><a href="#/Teachers/edit/{{result.id}}">{{result.image.id}}</a></td>
+                    <td><a href="#/Teachers/edit/{{result.id}}">{{result.phone}}</a></td>
+                    <td><a href="#/Teachers/edit/{{result.id}}">{{result.able}}</a></td>
+                    <td><a href="#/Teachers/edit/{{result.id}}">{{result.deleted}}</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+        <ul class="pagination pagination-centered">
+        <li ng-class="{disabled:currentPage == 0}">
+            <a id="prev" href ng-click="previous()">«</a>
+        </li>
+        <li ng-repeat="n in pageRange" ng-class="{active:currentPage == n}" ng-click="setPage(n)">
+            <a href ng-bind="n + 1">1</a>
+        </li>
+        <li ng-class="{disabled: currentPage == (numberOfPages() - 1)}">
+            <a id="next" href ng-click="next()">»</a>
+        </li>
+    </ul>
+
+</div>
