@@ -1,1 +1,153 @@
-<meta http-equiv="refresh" content="0;url=./app.html" />
+<!DOCTYPE html>
+<html lang="en" ng-app="coderoom">
+<head>
+<meta charset="utf-8">
+<title>Coderoom</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="valdese">
+
+<!--link rel="stylesheet/less" href="less/bootstrap.less" type="text/css" /-->
+<!--link rel="stylesheet/less" href="less/responsive.less" type="text/css" /-->
+<!--script src="js/less-1.3.3.min.js"></script-->
+<!--append ‘#!watch’ to the browser URL, then refresh the page. -->
+
+<link href="styles/bootstrap.min.css" rel="stylesheet">
+<link href="styles/style.css" rel="stylesheet">
+
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+  <![endif]-->
+
+<!-- Fav and touch icons -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144"
+	href="img/apple-touch-icon-144-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114"
+	href="img/apple-touch-icon-114-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72"
+	href="img/apple-touch-icon-72-precomposed.png">
+<link rel="apple-touch-icon-precomposed"
+	href="img/apple-touch-icon-57-precomposed.png">
+<link rel="shortcut icon" href="img/favicon.png">
+
+<script type="text/javascript" src="scripts/vendor/jquery.min.js"></script>
+<script type="text/javascript" src="scripts/vendor/bootstrap.min.js"></script>
+<script type="text/javascript" src="scripts/scripts.js"></script>
+</head>
+
+<body>
+	<div class="container">
+		<div style="padding: 15px"></div>
+		<div class="row clearfix">
+			<div class="col-md-12 column">
+				<div class="navbar navbar-default">
+					<div class="container">
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle"
+								data-toggle="collapse" data-target=".navbar-collapse">
+								<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+									class="icon-bar"></span>
+							</button>
+							<a href="#/"><img alt="140x140" src="img/logo.png"></a>
+						</div>
+						<div class="collapse navbar-collapse pull-right" id="menu">
+							<ul class="nav navbar-nav">
+								<li><a href="#">Accueil</a></li>
+								<li><a href="#about">Sessions</a></li>
+								<li><a ng-class="{active: matchesRoute('Courses')}"
+									href="#/Courses">Cours</a></li>
+								<li><a href="#contact">Créer Cours</a></li>
+								<li><a href="#contact">Se Connecter</a></li>
+								<li><a ng-class="{active: matchesRoute('Students')}" href="#/Students/new" data-toggle="offcanvas">S'inscrire</a></li>
+							</ul>
+						</div>
+						<!--/.nav-collapse -->
+						
+						<div style="padding-top: 5px"></div>
+
+						<div class="input-group col-md-5 column pull-right">
+							<input type="text" class="form-control"> <span
+								class="input-group-btn">
+								<button class="btn btn-info" type="button">
+									<span class="glyphicon glyphicon-search"></span>Rechercher
+								</button>
+							</span>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<!-- body -->
+		<div ng-view>
+		</div>
+	</div>
+	<script src="scripts/vendor/modernizr-2.8.3.min.js"></script>
+	<script src="scripts/vendor/jquery-2.0.3.js"></script>
+	<script src="scripts/vendor/bootstrap.js"></script>
+	<script src="scripts/vendor/angular.js"></script>
+	<script src="scripts/vendor/angular-route.js"></script>
+	<script src="scripts/vendor/angular-resource.js"></script>
+	<script src="scripts/app.js"></script>
+	<script src="scripts/offcanvas.js"></script>
+	<script src="scripts/directives/datepicker.js"></script>
+	<script src="scripts/directives/timepicker.js"></script>
+	<script src="scripts/directives/datetimepicker.js"></script>
+	<script src="scripts/filters/startFromFilter.js"></script>
+	<script src="scripts/filters/genericSearchFilter.js"></script>
+	<script src="scripts/services/locationParser.js"></script>
+	<script src="scripts/services/CategoryFactory.js"></script>
+	<script src="scripts/controllers/newCategoryController.js"></script>
+	<script src="scripts/controllers/searchCategoryController.js"></script>
+	<script src="scripts/controllers/editCategoryController.js"></script>
+	<script src="scripts/services/CourseFactory.js"></script>
+	<script src="scripts/controllers/newCourseController.js"></script>
+	<script src="scripts/controllers/searchCourseController.js"></script>
+	<script src="scripts/controllers/editCourseController.js"></script>
+	<script src="scripts/services/ExerciseFactory.js"></script>
+	<script src="scripts/controllers/newExerciseController.js"></script>
+	<script src="scripts/controllers/searchExerciseController.js"></script>
+	<script src="scripts/controllers/editExerciseController.js"></script>
+	<script src="scripts/services/FollowSessionFactory.js"></script>
+	<script src="scripts/controllers/newFollowSessionController.js"></script>
+	<script src="scripts/controllers/searchFollowSessionController.js"></script>
+	<script src="scripts/controllers/editFollowSessionController.js"></script>
+	<script src="scripts/services/ImageFactory.js"></script>
+	<script src="scripts/controllers/newImageController.js"></script>
+	<script src="scripts/controllers/searchImageController.js"></script>
+	<script src="scripts/controllers/editImageController.js"></script>
+	<script src="scripts/services/PendingCourseFactory.js"></script>
+	<script src="scripts/controllers/newPendingCourseController.js"></script>
+	<script src="scripts/controllers/searchPendingCourseController.js"></script>
+	<script src="scripts/controllers/editPendingCourseController.js"></script>
+	<script src="scripts/services/PendingExerciseFactory.js"></script>
+	<script src="scripts/controllers/newPendingExerciseController.js"></script>
+	<script src="scripts/controllers/searchPendingExerciseController.js"></script>
+	<script src="scripts/controllers/editPendingExerciseController.js"></script>
+	<script src="scripts/services/PendingTeacherFactory.js"></script>
+	<script src="scripts/controllers/newPendingTeacherController.js"></script>
+	<script src="scripts/controllers/searchPendingTeacherController.js"></script>
+	<script src="scripts/controllers/editPendingTeacherController.js"></script>
+	<script src="scripts/services/SessionFactory.js"></script>
+	<script src="scripts/controllers/newSessionController.js"></script>
+	<script src="scripts/controllers/searchSessionController.js"></script>
+	<script src="scripts/controllers/editSessionController.js"></script>
+	<script src="scripts/services/StudentFactory.js"></script>
+	<script src="scripts/controllers/newStudentController.js"></script>
+	<script src="scripts/controllers/searchStudentController.js"></script>
+	<script src="scripts/controllers/editStudentController.js"></script>
+	<script src="scripts/services/TaskFactory.js"></script>
+	<script src="scripts/controllers/newTaskController.js"></script>
+	<script src="scripts/controllers/searchTaskController.js"></script>
+	<script src="scripts/controllers/editTaskController.js"></script>
+	<script src="scripts/services/TeacherFactory.js"></script>
+	<script src="scripts/controllers/newTeacherController.js"></script>
+	<script src="scripts/controllers/searchTeacherController.js"></script>
+	<script src="scripts/controllers/editTeacherController.js"></script>
+	<script src="scripts/services/UserFactory.js"></script>
+	<script src="scripts/controllers/newUserController.js"></script>
+	<script src="scripts/controllers/searchUserController.js"></script>
+	<script src="scripts/controllers/editUserController.js"></script>
+</body>
+</html>

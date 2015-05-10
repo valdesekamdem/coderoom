@@ -59,14 +59,14 @@ public class Teacher implements Serializable
    @Enumerated
    private Language language;
 
-   @OneToOne
-   private Image image;
-
    @Column
    private String phone;
 
    @Column
    private boolean deleted;
+
+   @OneToOne
+   private Image image;
 
    public Long getId()
    {
@@ -209,16 +209,6 @@ public class Teacher implements Serializable
       this.language = language;
    }
 
-   public Image getImage()
-   {
-      return image;
-   }
-
-   public void setImage(Image image)
-   {
-      this.image = image;
-   }
-
    public String getPhone()
    {
       return phone;
@@ -237,6 +227,16 @@ public class Teacher implements Serializable
    public void setDeleted(boolean deleted)
    {
       this.deleted = deleted;
+   }
+
+   public Image getImage()
+   {
+      return image;
+   }
+
+   public void setImage(Image image)
+   {
+      this.image = image;
    }
 
    @Override

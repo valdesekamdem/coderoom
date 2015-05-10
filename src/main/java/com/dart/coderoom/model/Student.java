@@ -14,6 +14,8 @@ import javax.persistence.TemporalType;
 import javax.persistence.Enumerated;
 import com.dart.coderoom.model.Language;
 import javax.xml.bind.annotation.XmlRootElement;
+import com.dart.coderoom.model.Image;
+import javax.persistence.OneToOne;
 
 @Entity
 @XmlRootElement
@@ -62,6 +64,9 @@ public class Student implements Serializable
 
    @Column
    private boolean deleted;
+
+   @OneToOne
+   private Image image;
 
    public Long getId()
    {
@@ -222,6 +227,16 @@ public class Student implements Serializable
    public void setDeleted(boolean deleted)
    {
       this.deleted = deleted;
+   }
+
+   public Image getImage()
+   {
+      return image;
+   }
+
+   public void setImage(Image image)
+   {
+      this.image = image;
    }
 
    @Override

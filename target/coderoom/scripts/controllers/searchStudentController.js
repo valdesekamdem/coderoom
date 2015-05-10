@@ -1,6 +1,6 @@
 
 
-angular.module('coderoom').controller('SearchStudentController', function($scope, $http, StudentResource ) {
+angular.module('coderoom').controller('SearchStudentController', function($scope, $http, StudentResource , ImageResource) {
 
     $scope.search={};
     $scope.currentPage = 0;
@@ -21,6 +21,7 @@ angular.module('coderoom').controller('SearchStudentController', function($scope
         "FRENCH",
         "ENGLISH"
     ];
+    $scope.imageList = ImageResource.queryAll();
     $scope.ableList = [
         "true",
         "false"

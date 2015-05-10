@@ -16,7 +16,9 @@
 /home/valdese/work/forge/coderoom/src/main/java/com/dart/coderoom/rest/RestApplication.java
 /home/valdese/work/forge/coderoom/src/main/java/com/dart/coderoom/model/UserType.java
 /home/valdese/work/forge/coderoom/src/main/java/com/dart/coderoom/rest/TaskEndpoint.java
+/home/valdese/work/forge/coderoom/src/main/java/com/dart/coderoom/model/Compte.java
 /home/valdese/work/forge/coderoom/src/main/java/com/dart/coderoom/rest/ExerciseEndpoint.java
+/home/valdese/work/forge/coderoom/src/main/java/com/dart/coderoom/rest/CompteEndpoint.java
 /home/valdese/work/forge/coderoom/src/main/java/com/dart/coderoom/model/FollowSession.java
 /home/valdese/work/forge/coderoom/src/main/java/com/dart/coderoom/rest/UserEndpoint.java
 /home/valdese/work/forge/coderoom/src/main/java/com/dart/coderoom/rest/StudentEndpoint.java

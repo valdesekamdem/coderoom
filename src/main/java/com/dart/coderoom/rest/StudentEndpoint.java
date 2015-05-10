@@ -3,6 +3,7 @@ package com.dart.coderoom.rest;
 import java.util.List;
 
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.OptimisticLockException;
@@ -20,6 +21,8 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 import javax.ws.rs.core.UriBuilder;
+
+import com.dart.coderoom.model.Language;
 import com.dart.coderoom.model.Student;
 
 /**
@@ -31,11 +34,16 @@ public class StudentEndpoint
 {
    @PersistenceContext(unitName = "coderoom-persistence-unit")
    private EntityManager em;
+   
+   private Language language;
 
    @POST
    @Consumes("application/json")
    public Response create(Student entity)
    {
+	  entity.setLanguage(language.FRENCH);
+	  entity.setAble(false);
+	  entity.setDeleted(false);
       em.persist(entity);
       return Response.created(UriBuilder.fromResource(StudentEndpoint.class).path(String.valueOf(entity.getId())).build()).build();
    }

@@ -1,8 +1,10 @@
+com/dart/coderoom/model/Compte.class
 com/dart/coderoom/model/Session.class
 com/dart/coderoom/model/Teacher.class
 com/dart/coderoom/rest/RestApplication.class
 com/dart/coderoom/model/FollowSession.class
 com/dart/coderoom/rest/PendingExerciseEndpoint.class
+com/dart/coderoom/rest/CompteEndpoint.class
 com/dart/coderoom/rest/PendingTeacherEndpoint.class
 com/dart/coderoom/rest/TaskEndpoint.class
 com/dart/coderoom/rest/TeacherEndpoint.class
