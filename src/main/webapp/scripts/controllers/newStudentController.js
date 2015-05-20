@@ -53,15 +53,6 @@ angular.module('coderoom').controller('NewStudentController', function ($scope, 
         $location.path("/");
     };
     
-//    $scope.create = function () {
-//    	var successCallback = function(data,responseHeaders){
-//    		$location.path("/");
-//    	};
-//    	var errorCallback = function(){
-//    		$scope.displayError = true;
-//    	};
-//		CompteResource.save($scope.compte, successCallback, errorCallback);
-//    }
     $scope.create = function () {
 		CompteResource.save($scope.compte).success(function(){
 			$location.path("/");

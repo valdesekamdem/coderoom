@@ -47,7 +47,9 @@ angular.module('coderoom',['ngRoute','ngResource'])
         redirectTo: '/'
       });
   }])
-  .controller('LandingPageController', function LandingPageController() {
+  .controller('LandingPageController', function LandingPageController($scope, SessionService) {
+	  $scope.isConnected = SessionService.userConnected();
+	  console.log($scope.isConnected);
   })
   .controller('NavController', function NavController($scope, $location) {
     $scope.matchesRoute = function(route) {

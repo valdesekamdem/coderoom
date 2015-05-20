@@ -1,49 +1,53 @@
-<header ng-switch on="$location.path().indexOf('/Users/new') > -1">
-    <h3 ng-switch-when="true">Create a new User</h3>
-    <h3 ng-switch-when="false">View or edit User</h3>
-</header>
-<form id="UserForm" name="UserForm" class="form-horizontal" role="form">
-    <div ng-show="displayError" class="alert alert-danger">
-        <strong>Error!</strong> Something broke. Retry, or cancel and start afresh.
-    </div>
-    
-
-    <div class="form-group" ng-class="{'has-error': UserForm.nickname.$invalid}">
-        <label for="nickname" class="col-sm-2 control-label">Nickname</label>
-        <div id="nicknameControls" class="col-sm-10">
-            <input id="nickname" name="nickname" type="text"class="form-control" ng-model="user.nickname" placeholder="Enter the User Nickname"></input>
-        </div>
-    </div>
-
-    <div class="form-group" ng-class="{'has-error': UserForm.password.$invalid}">
-        <label for="password" class="col-sm-2 control-label">Password</label>
-        <div id="passwordControls" class="col-sm-10">
-            <input id="password" name="password" type="text"class="form-control" ng-model="user.password" placeholder="Enter the User Password"></input>
-        </div>
-    </div>
-
-    <div class="form-group" ng-class="{'has-error': UserForm.userid.$invalid}">
-        <label for="userid" class="col-sm-2 control-label">Userid</label>
-        <div id="useridControls" class="col-sm-10">
-            <input id="userid" name="userid" type="text"class="form-control" ng-model="user.userid" placeholder="Enter the User Userid"></input>
-        </div>
-    </div>
-
-    <div class="form-group" ng-class="{'has-error': UserForm.userType.$invalid}">
-        <label for="userType" class="col-sm-2 control-label">User Type</label>
-        <div id="userTypeControls" class="col-sm-10">
-        <select id="userType" name="userType" class="form-control" ng-model="user.userType" ng-options="u for u in userTypeList"  >
-            <option value="">Choose a User Type</option>
-        </select>
-        </div>
-    </div>
-
-
-    <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
-            <button id="saveUser" name="saveUser" class="btn btn-primary" ng-disabled="isClean() || UserForm.$invalid" ng-click="save()"><span class="glyphicon glyphicon-ok-sign"></span> Save</button>
-            <button id="cancel" name="cancel" class="btn btn-default" ng-click="cancel()"><span class="glyphicon glyphicon-remove-sign"></span> Cancel</button>
-            <button id="deleteUser" name="deleteUser" class="btn btn-danger" ng-show="user.id" ng-click="remove()"><span class="glyphicon glyphicon-trash"></span> Delete</button>
-        </div>
-    </div>
-</form>
+<div class="col-xs-6 col-sm-3 well sidebar-offcanvas"></div>
+<!-- main area-->
+<div class="col-sm-offset-1 col-xs-12 col-sm-8 well mainarea">
+	
+	<header ng-switch on="$location.path().indexOf('/Users/new') > -1">
+	    <h3 ng-switch-when="true">Create a new User</h3>
+	    <h3 ng-switch-when="false">View or edit User</h3>
+	</header>
+	<form id="UserForm" name="UserForm" class="form-horizontal" role="form">
+	    <div ng-show="displayError" class="alert alert-danger">
+	        <strong>Error!</strong> Something broke. Retry, or cancel and start afresh.
+	    </div>
+	    
+	
+	    <div class="form-group" ng-class="{'has-error': UserForm.nickname.$invalid}">
+	        <label for="nickname" class="col-sm-2 control-label">Pseudo</label>
+	        <div id="nicknameControls" class="col-sm-10">
+	            <input id="nickname" name="nickname" type="text"class="form-control" ng-model="user.nickname" placeholder="Enter the User Nickname"></input>
+	        </div>
+	    </div>
+	
+	    <div class="form-group" ng-class="{'has-error': UserForm.password.$invalid}">
+	        <label for="password" class="col-sm-2 control-label">Mot de passe</label>
+	        <div id="passwordControls" class="col-sm-10">
+	            <input id="password" name="password" type="text" class="form-control" ng-model="user.password" placeholder="Enter the User Password"></input>
+	        </div>
+	    </div>
+	    <!-- <div class="form-group" ng-class="{'has-error': UserForm.userid.$invalid}">
+	        <label for="userid" class="col-sm-2 control-label">Userid</label>
+	        <div id="useridControls" class="col-sm-10">
+	            <input id="userid" name="userid" type="text"class="form-control" ng-model="user.userid" placeholder="Enter the User Userid"></input>
+	        </div>
+	    </div>
+	
+	    <div class="form-group" ng-class="{'has-error': UserForm.userType.$invalid}">
+	        <label for="userType" class="col-sm-2 control-label">User Type</label>
+	        <div id="userTypeControls" class="col-sm-10">
+	        <select id="userType" name="userType" class="form-control" ng-model="user.userType" ng-options="u for u in userTypeList"  >
+	            <option value="">Choose a User Type</option>
+	        </select>
+	        </div>
+	    </div> -->
+	
+	
+	    <div class="form-group">
+	        <div class="col-sm-offset-2 col-sm-10">
+	            <button id="saveUser" name="saveUser" class="btn btn-primary" ng-disabled="isClean() || UserForm.$invalid" ng-click="connexion()"><span class="glyphicon glyphicon-ok-sign"></span>Connexion</button>
+	            <button id="cancel" name="cancel" class="btn btn-default" ng-click="cancel()"><span class="glyphicon glyphicon-remove-sign"></span> S'inscrire</button>
+	            <button id="deleteUser" name="deleteUser" class="btn btn-danger" ng-show="user.id" ng-click="remove()"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+	        </div>
+	    </div>
+	</form>
+</div>

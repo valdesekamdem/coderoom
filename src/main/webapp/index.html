@@ -36,7 +36,7 @@
 <script type="text/javascript" src="scripts/scripts.js"></script>
 </head>
 
-<body>
+<body style="background-color: #FFFFFF;">
 	<div class="container">
 		<div style="padding: 15px"></div>
 		<div class="row clearfix">
@@ -58,8 +58,10 @@
 								<li><a ng-class="{active: matchesRoute('Courses')}"
 									href="#/Courses">Cours</a></li>
 								<li><a href="#contact">Créer Cours</a></li>
-								<li><a href="#contact">Se Connecter</a></li>
-								<li><a ng-class="{active: matchesRoute('Students')}" href="#/Students/new" data-toggle="offcanvas">S'inscrire</a></li>
+								
+								<li ng-if="!isConnected"><a ng-class="{active: matchesRoute('Users')}" href="#/Users/new" data-toggle="offcanvas">Se Connecter</a></li>
+								<li ng-if="!isConnected"><a ng-class="{active: matchesRoute('Students')}" href="#/Students/new" data-toggle="offcanvas">S'inscrire</a></li>
+								<li ng-if="isConnected"><a href="#contact">Se déconnecter</a></li>
 							</ul>
 						</div>
 						<!--/.nav-collapse -->
@@ -146,6 +148,7 @@
 	<script src="scripts/controllers/searchTeacherController.js"></script>
 	<script src="scripts/controllers/editTeacherController.js"></script>
 	<script src="scripts/services/UserFactory.js"></script>
+	<script src="scripts/services/SessionService.js"></script>
 	<script src="scripts/controllers/newUserController.js"></script>
 	<script src="scripts/controllers/searchUserController.js"></script>
 	<script src="scripts/controllers/editUserController.js"></script>

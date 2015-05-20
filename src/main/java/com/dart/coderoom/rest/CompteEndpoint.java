@@ -35,13 +35,13 @@ public class CompteEndpoint {
 		String nickname = entity.getNickname();
 		String email = entity.getEmail();
 		String password = entity.getPassword();
-		String userid = String.valueOf(student.getId());
 		
 		student.setName(name);
 		student.setEmail(email);
 		
 		studentEndpoint.create(student);
-	
+
+		String userid = String.valueOf(student.getId());
 		user.setUserid(userid);
 		user.setNickname(nickname);
 		user.setPassword(password);
