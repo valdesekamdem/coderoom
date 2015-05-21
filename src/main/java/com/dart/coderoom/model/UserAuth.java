@@ -4,6 +4,7 @@ public class UserAuth {
 	private String token;
 	private String userid;
 	private String nickname;
+	private UserType userType;
 	
 	public String getToken() {
 		return token;
@@ -22,6 +23,12 @@ public class UserAuth {
 	}
 	public void setNickname(String nickname) {
 		this.nickname = nickname;
+	}
+	public UserType getUserType() {
+		return userType;
+	}
+	public void setUserType(UserType userType) {
+		this.userType = userType;
 	}
 	
 }

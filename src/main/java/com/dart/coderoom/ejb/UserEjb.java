@@ -11,6 +11,7 @@ import org.apache.commons.codec.binary.Base64;
 import com.dart.coderoom.exception.InvalidUsernameOrPasswordException;
 import com.dart.coderoom.model.User;
 import com.dart.coderoom.model.UserAuth;
+import com.dart.coderoom.model.UserType;
 
 public class UserEjb {
 	
@@ -37,13 +38,15 @@ public class UserEjb {
 		UserAuth userAuth = new UserAuth();
 		String nickname = user.getNickname();
 		String password = user.getPassword();
-		String userid = user.getUserid();	
+		String userid = user.getUserid();
+		UserType userType = user.getUserType();
 		String authStr = nickname + ":" + password;
 		String authEncoded = Base64.encodeBase64String(authStr.getBytes());
 		
 		userAuth.setNickname(nickname);
 		userAuth.setUserid(userid);
 		userAuth.setToken(authEncoded);
+		userAuth.setUserType(userType);
 		return userAuth;
 	}
 	

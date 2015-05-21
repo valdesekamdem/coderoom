@@ -2,7 +2,7 @@ package com.dart.coderoom.model;
 
 import java.io.Serializable;
 
-public class Compte implements Serializable{
+public class StudentAccount implements Serializable{
 	private String name;
 	private String nickname;
 	private String password;

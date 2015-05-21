@@ -4,7 +4,7 @@ angular.module('coderoom')
     return resource;
 })
 .factory('CompteResource' , function ($http) {
-	var url = 'rest/comptes'; 
+	var url = 'rest/studentAccounts'; 
 	var service = {};
 	
 	service.save = function(compte){
@@ -13,7 +13,3 @@ angular.module('coderoom')
 	return service;
 	
 });
-//.factory('CompteResource' , function ($resource) {
-//	var resource = $resource('rest/comptes');
-//	return resource;
-//});

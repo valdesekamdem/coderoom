@@ -1,6 +1,7 @@
 /home/valdese/work/forge/coderoom/src/main/java/com/dart/coderoom/ejb/UserEjb.java
 /home/valdese/work/forge/coderoom/src/main/java/com/dart/coderoom/model/Task.java
 /home/valdese/work/forge/coderoom/src/main/java/com/dart/coderoom/rest/PendingTeacherEndpoint.java
+/home/valdese/work/forge/coderoom/src/main/java/com/dart/coderoom/model/TeacherAccount.java
 /home/valdese/work/forge/coderoom/src/main/java/com/dart/coderoom/model/Student.java
 /home/valdese/work/forge/coderoom/src/main/java/com/dart/coderoom/model/PendingTeacher.java
 /home/valdese/work/forge/coderoom/src/main/java/com/dart/coderoom/model/Course.java
@@ -14,13 +15,13 @@
 /home/valdese/work/forge/coderoom/src/main/java/com/dart/coderoom/rest/CourseEndpoint.java
 /home/valdese/work/forge/coderoom/src/main/java/com/dart/coderoom/rest/SessionEndpoint.java
 /home/valdese/work/forge/coderoom/src/main/java/com/dart/coderoom/exception/InvalidUsernameOrPasswordException.java
+/home/valdese/work/forge/coderoom/src/main/java/com/dart/coderoom/rest/StudentAccountEndpoint.java
 /home/valdese/work/forge/coderoom/src/main/java/com/dart/coderoom/rest/PendingCourseEndpoint.java
 /home/valdese/work/forge/coderoom/src/main/java/com/dart/coderoom/rest/RestApplication.java
 /home/valdese/work/forge/coderoom/src/main/java/com/dart/coderoom/model/UserType.java
 /home/valdese/work/forge/coderoom/src/main/java/com/dart/coderoom/rest/TaskEndpoint.java
-/home/valdese/work/forge/coderoom/src/main/java/com/dart/coderoom/model/Compte.java
 /home/valdese/work/forge/coderoom/src/main/java/com/dart/coderoom/rest/ExerciseEndpoint.java
-/home/valdese/work/forge/coderoom/src/main/java/com/dart/coderoom/rest/CompteEndpoint.java
+/home/valdese/work/forge/coderoom/src/main/java/com/dart/coderoom/model/StudentAccount.java
 /home/valdese/work/forge/coderoom/src/main/java/com/dart/coderoom/model/FollowSession.java
 /home/valdese/work/forge/coderoom/src/main/java/com/dart/coderoom/rest/UserEndpoint.java
 /home/valdese/work/forge/coderoom/src/main/java/com/dart/coderoom/rest/StudentEndpoint.java

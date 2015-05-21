@@ -5,17 +5,15 @@ import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
-import javax.ws.rs.core.Response;
-import javax.ws.rs.core.UriBuilder;
 
-import com.dart.coderoom.model.Compte;
+import com.dart.coderoom.model.StudentAccount;
 import com.dart.coderoom.model.Student;
 import com.dart.coderoom.model.User;
 import com.dart.coderoom.model.UserType;
 
 @Stateless
-@Path("/comptes")
-public class CompteEndpoint {
+@Path("/studentAccounts")
+public class StudentAccountEndpoint {
 	
 	@Inject
 	private StudentEndpoint studentEndpoint;
@@ -26,7 +24,7 @@ public class CompteEndpoint {
 	
 	@POST
 	@Consumes("application/json")
-	public void create(Compte entity)
+	public void create(StudentAccount entity)
 	{
 		Student student = new Student();
 		User user = new User();
@@ -48,7 +46,6 @@ public class CompteEndpoint {
 		user.setUserType(userType.STUDENT);
 		
 		userEndpoint.create(user);
-		
 		//return Response.created(UriBuilder.fromResource(StudentEndpoint.class).path(String.valueOf(user.getId())).build()).build();
 	
 	}

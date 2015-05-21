@@ -1,5 +1,5 @@
 
-angular.module('coderoom').controller('NewTeacherController', function ($scope, $location, locationParser, TeacherResource , ImageResource) {
+angular.module('coderoom').controller('NewTeacherController', function ($scope, $location, locationParser, TeacherResource , ImageResource, TeacherAccountResource) {
     $scope.disabled = false;
     $scope.$location = $location;
     $scope.teacher = $scope.teacher || {};
@@ -33,7 +33,8 @@ angular.module('coderoom').controller('NewTeacherController', function ($scope, 
         "true",
         "false"
     ];
-
+    
+    $scope.teacherAccount = {};
 
     $scope.save = function() {
         var successCallback = function(data,responseHeaders){
@@ -49,5 +50,14 @@ angular.module('coderoom').controller('NewTeacherController', function ($scope, 
     
     $scope.cancel = function() {
         $location.path("/Teachers");
+    };
+    
+    $scope.create = function() {
+    	TeacherAccountResource.save($scope.teacherAccount).success(function(){
+			$location.path("/");
+		}).error(function(){
+			$scope.displayError = true;
+		});
+		$scope.compte = {};
     };
 });
