@@ -92,7 +92,7 @@
   	<repository>
 	   	<id>coderoom</id>
 	   	<name>Coderoom</name>
-	   	<url>http://localhost:8081/nexus/content/repositories/coderoom/</url>
+	   	<url>http://nexus/content/repositories/coderoom/</url>
 	  </repository>
 	</distributionManagement>
 </project>
