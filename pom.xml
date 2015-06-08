@@ -88,4 +88,21 @@
       </plugin>
     </plugins>
   </build>
+  <distributionmanagement>
+  	<repository>
+	   	<id>coderoom</id>
+	   	<name>Coderoom</name>
+	   	<url>http://localhost:8081/nexus/content/repositories/coderoom/</url>
+	  </repository>
+	  <repository>
+	   	<id>releases</id>
+	   	<name>Release Repository</name>
+	   	<url>http://localhost:8081/nexus/content/repositories/releases/</url>
+	  </repository>
+	  <snapshotrepository>
+	   	<id>snapshots</id>
+	   	<name>Snapshot Repository</name>
+	   	<url>http://localhost:8081/nexus/content/repositories/snapshots/</url>
+	  </snapshotrepository>
+	</distributionmanagement>
 </project>
