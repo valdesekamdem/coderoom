@@ -88,11 +88,4 @@
       </plugin>
     </plugins>
   </build>
-  <distributionManagement>
-  	<repository>
-	   	<id>coderoom</id>
-	   	<name>Coderoom</name>
-	   	<url>http://nexus/content/repositories/coderoom/</url>
-	  </repository>
-	</distributionManagement>
 </project>
