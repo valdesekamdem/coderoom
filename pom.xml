@@ -94,10 +94,5 @@
 	   	<name>Coderoom</name>
 	   	<url>http://localhost:8081/nexus/content/repositories/coderoom/</url>
 	  </repository>
-	  <snapshotrepository>
-	   	<id>snapshots</id>
-	   	<name>Snapshot Repository</name>
-	   	<url>http://localhost:8081/nexus/content/repositories/snapshots/</url>
-	  </snapshotrepository>
 	</distributionManagement>
 </project>
