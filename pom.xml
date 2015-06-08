@@ -4,6 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.dart.coderoom</groupId>
   <artifactId>coderoom</artifactId>
+  <version>1.0.0</version>
   <packaging>war</packaging>
   <properties>
     <maven.compiler.source>1.7</maven.compiler.source>
