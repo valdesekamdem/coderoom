@@ -4,13 +4,13 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.dart.coderoom</groupId>
   <artifactId>coderoom</artifactId>
-  <version>${release}</version>
+  <version>${release}-${revision}</version>
   <packaging>war</packaging>
   <properties>
     <maven.compiler.source>1.7</maven.compiler.source>
     <maven.compiler.target>1.7</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <release>1.0.0</release>
+    <release>1.0</release><revision>SNAPSHOT</revision>
   </properties>
   <dependencyManagement>
     <dependencies>
