@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.dart.coderoom</groupId>
   <artifactId>coderoom</artifactId>
-  <version>1.0.0</version>
+  <version>${project.version}</version>
   <packaging>war</packaging>
   <properties>
     <maven.compiler.source>1.7</maven.compiler.source>
@@ -85,11 +85,6 @@
         <configuration>
           <failOnMissingWebXml>false</failOnMissingWebXml>
         </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-release-plugin</artifactId>
-        <version>2.5.2</version>
       </plugin>
     </plugins>
   </build>
